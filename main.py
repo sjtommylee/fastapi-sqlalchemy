@@ -4,6 +4,7 @@ from typing import Optional
 from fastapi import FastAPI
 # importing the basemodel from pydantic, which we need for the req.body
 from pydantic import BaseModel
+import uvicorn
 # create an instance of fastapi
 app = FastAPI()
 
@@ -52,3 +53,7 @@ class Blog(BaseModel):
 def create_blog(request: Blog):
     print({'data': {'title': {request.title}, "body": {request.body}}})
     return {'data': {'title': {request.title}, "body": {request.body}}}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=9000)
