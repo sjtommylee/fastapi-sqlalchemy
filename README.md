@@ -16,3 +16,7 @@ for educational purposes
 2. uvicorn
 3. sqlalchemy
 4. psycopg2 - postgresql database adapater
+
+## general notes
+
+1. create_engine - pass in a conn string,
