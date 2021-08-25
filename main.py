@@ -2,6 +2,8 @@
 # import package
 from typing import Optional
 from fastapi import FastAPI
+# importing the basemodel from pydantic, which we need for the req.body
+from pydantic import BaseModel
 # create an instance of fastapi
 app = FastAPI()
 
@@ -40,6 +42,13 @@ def comments(id: int):
     return {'data': {'1', '2'}}
 
 
+class Blog(BaseModel):
+    title: str
+    body: str
+    published: Optional[bool]
+
+
 @app.post('/blog')
-def create_blog():
-    return {'data': "blog is created"}
+def create_blog(request: Blog):
+    print({'data': {'title': {request.title}, "body": {request.body}}})
+    return {'data': {'title': {request.title}, "body": {request.body}}}
