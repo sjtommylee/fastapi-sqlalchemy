@@ -9,6 +9,8 @@ engine = create_engine(conn_string, connect_args={"check_same_thread": False})
 
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
+# decorato for declarative_base. it contains a metadata object where newly defined table objects are collected
+
 
 @as_declarative()
 class Base:
