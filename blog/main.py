@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from . import schemas
+from . import database
+from . import models
 app = FastAPI()
-
-# here we are extending the mod
 
 
 @app.post('/blog')
